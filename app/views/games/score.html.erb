@@ -1,0 +1,11 @@
+
+
+<h2><%=@result%></h2>
+<ul>
+  <% session[:words].each do |word|%>
+  <li><%=word%></li>
+  <%end%>
+</ul>
+<h2>Score: <%=session[:score]%></h2>
+
+<%= link_to "Try Again", new_path %>
