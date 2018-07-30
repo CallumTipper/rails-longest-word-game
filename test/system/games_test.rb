@@ -16,8 +16,11 @@ class GamesTest < ApplicationSystemTestCase
 
   test "entering a single letter word in /new form gives us a not-english response" do
     visit new_url
-    fill_in "longest_word", with: "f"
+    l = find("li:nth-child(1)").text
+    fill_in "longest_word", with: "#{l}"
     click_on "Play"
-    assert_text "Sorry but 'f' isn't English!"
+    assert_text "Sorry but '#{l}' isn't English!"
   end
+
+
 end
