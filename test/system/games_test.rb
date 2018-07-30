@@ -13,4 +13,11 @@ class GamesTest < ApplicationSystemTestCase
     click_on "Play"
     assert_text "Sorry but 'abcdef' can't be built from these letters!"
   end
+
+  test "entering a single letter word in /new form gives us a not-english response" do
+    visit new_url
+    fill_in "longest_word", with: "f"
+    click_on "Play"
+    assert_text "Sorry but 'f' isn't English!"
+  end
 end
